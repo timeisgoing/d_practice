@@ -13,15 +13,23 @@ func Getretriever2() Impl2.Retriever {
 	return Impl2.Retriever{} //Impl使用的是impl.go的package名字,如何引用别的文件中的结构
 }
 
-func main1() {
-	//各自对象调用各自的方法
+func main() {
+/*	//各自对象调用各自的方法
 	var retriever Impl.Retriever = Getretriever() //用var声明的对象都是用=赋值;没有var才可以使用:=赋值
 	get := retriever.Get("http://www.baidu.com")
 	fmt.Println(get)
 
 	var retriever2 Impl2.Retriever = Getretriever2()
 	get2 := retriever2.Get("http://www.baidu.com")
-	fmt.Println(get2)
+	fmt.Println(get2)*/
+	fmt.Println("====================================")
+	var r xxoo
+	r = Impl.Retriever{}
+	if is,err := r.(Impl2.Retriever);err{
+		fmt.Println(is)
+	}else {
+		fmt.Println("报错了，不是这个类型的")
+	}
 
 }
 //===============================================================
@@ -31,8 +39,8 @@ type xxoo interface {
 	Get(string) string
 }
 
-func main()  {
-	var  r xxoo =Getretriever()
+func main1()  {
+	var  r xxoo =Getretriever()    //可以用xxoo类型接收retriever类型的结构，可见接口中的类型就是个泛型
 	get := r.Get("http://www.baidu.com")
 	fmt.Println(get)
 
