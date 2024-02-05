@@ -19,7 +19,7 @@ var result [][]int
 
 func permute(nums []int) [][]int {
 	track := make([]int, 0, 0)
-	result_ = make([][]int, 0, 0) //为了每次清空上一次的结果
+	result = make([][]int, 0, 0) //为了每次清空上一次的结果
 	backTrack(nums, track)
 	return result
 }
@@ -27,7 +27,7 @@ func permute(nums []int) [][]int {
 func backTrack(nums []int, track []int) {
 	// list 暂存全排列的数组
 	if len(track) == len(nums) { //长度一样了，那就记录结果
-		//result = append(result, track) //有问题，为track是一个切片，后续的回溯过程会修改track，导致之前添加到result中的全排列也会被修改。这样会导致最终的结果不正确。
+		//result = append(result, track) //有问题，因为track是一个切片，后续的回溯过程会修改track，导致之前添加到result中的全排列也会被修改。这样会导致最终的结果不正确。
 		trackCopy := make([]int, len(track))
 		copy(trackCopy, track)
 		result = append(result, trackCopy)
@@ -39,7 +39,7 @@ func backTrack(nums []int, track []int) {
 		}
 		track = append(track, num) //添加上路径节点
 		backTrack(nums, track)     //再往下递归
-		//del，这是回溯算法的关键，回溯
+		//del，这是回溯算法的关键，回溯时删除刚刚添加的元素
 		track = track[0 : len(track)-1]
 
 	}
