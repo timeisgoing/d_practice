@@ -13,7 +13,7 @@ func TestName(t *testing.T) {
 
 var result_ [][]int
 
-// 意思：在值的范围是[1,n]之间找到k个组合
+// 意思：在值的范围是[1,n]之间找到k个组合  这个不就是子集的变种吗
 func combine(n int, k int) [][]int {
 	track := make([]int, 0, 0)
 	//result_ := make([][]int, 0, 0) // fix 初始化
