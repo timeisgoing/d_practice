@@ -5,7 +5,8 @@ import (
 	"testing"
 )
 
-// 78. 子集 https://leetcode.cn/problems/subsets/description/
+//	回溯 78. 子集 https://leetcode.cn/problems/subsets/description/
+//
 // https://leetcode.cn/problems/subsets/solutions/586887/golangban-ben-hui-su-mo-ban-li-jie-ti-xi-upx4/ 这个题解和我思路一样
 func TestName1(t *testing.T) {
 	nums := []int{1, 2, 3}
