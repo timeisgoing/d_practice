@@ -1,4 +1,4 @@
-package test
+package huisu_test
 
 import (
 	"testing"
